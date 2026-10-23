@@ -1,11 +1,11 @@
 # GDD – JuniorJam (Tema: Fall)
 
 ## Özet
-Kızılay'daki bir ağaçtan kopan bir yaprağı, iki fanın rüzgârıyla havada tutmaya çalışıyorsun. Yaprak sürekli aşağı düşer; amaç yere çarpmadan olabildiğince uzun süre dayanmak.
+Kızılay'daki bir ağaçtan kopan bir yaprağı, iki yelpazeyle sağa sola üfleyerek düşen dallardan kaçırıyorsun. Yaprak ekranda sabit durur; arka plan ve dallar yukarı kayarak düşme hissi verir. Amaç olabildiğince uzun süre dayanmak.
 
 - **Tür:** 2D, skor odaklı hayatta kalma
 - **Motor:** Unity (URP 2D)
-- **Kontroller:** `A` = sol fan, `D` = sağ fan
+- **Kontroller:** `A` = sol yelpaze, `D` = sağ yelpaze (basıp bırakarak sallanır)
 
 ---
 
@@ -27,31 +27,47 @@ Kızılay'daki bir ağaçtan kopan bir yaprağı, iki fanın rüzgârıyla havad
 ## Game Scene
 
 **Yerleşim:**
-- Ortada düşen yaprak (oyuncu karakteri)
-- Sol alt köşede fan (`A` tuşu), sağ alt köşede fan (`D` tuşu)
-- Sahnede yaprağın çarpabileceği platformlar/engeller
+- Üst-ortada yaprak (oyuncu karakteri)
+- Sol alt köşede yelpaze (`A`), sağ alt köşede yelpaze (`D`)
+- Ekranın sol ve sağ kenarlarından içeri uzanan dallar (engeller)
+
+**Kamera / Hareket:**
+- Yaprak dikeyde **sabit**, sadece yatayda hareket eder
+- Yatay sınır: `X = -7.5` ile `X = 7.5` arası (Inspector'dan ayarlanabilir)
+- Arka plan ve dallar sürekli **yukarı kayar**
 
 **Koşullar:**
 - **Win:** Yok (sonsuz oyun)
-- **Fail:** Yaprağın zemine (ground) çarpması
+- **Fail:** Ground'a çarpma *(bkz. Açık Sorular)*
 - **Skor:** Süre bazlı, en iyi skor (best score) kaydedilir
 
 ---
 
-## Hareket Mekaniği
+## Hareket Mekaniği (Yelpaze)
 
-Yaprağa her frame iki kuvvet etki eder:
+- Tuşa **her basışta** yelpaze **bir kez sallanır** ve yaprağa kısa bir rüzgâr üfler.
+- **Ne kadar hızlı basılırsa** üfleme o kadar güçlü olur, yaprak daha hızlı gider.
+- Soldaki yelpaze yaprağı **sağa**, sağdaki **sola** iter.
+- Güç, yaprağın yelpazeye **uzaklığına** bağlıdır: yakınsa güçlü, uzaksa zayıf.
+- Basmayı bırakınca yaprak yavaşça durur.
 
-1. **Gravity vektörü:** Her zaman aşağı doğru.
-2. **Hareket vektörü:** Basılı tutulan fanın **tersi yönünde**. Şiddeti, yaprağın fana olan **uzaklığına** bağlı (yakınsa güçlü, uzaksa zayıf).
+**Ayarlanabilir değerler (Fan.cs):**
 
-**Kural:** Her zaman `gravity.y > hareket.y` olmalı. Yani fanlar yaprağı yavaşlatır ve yana iter ama asla yukarı kaldıramaz; yaprak her durumda aşağı iner.
+| Değer | Ne yapar |
+|-------|----------|
+| `baseGust` | Yavaş basışta tek sallamanın gücü |
+| `maxRateMultiplier` | En hızlı basışta güç kaç katına çıkar |
+| `maxTapsPerSecond` | Saniyede kaç basış en yüksek güç sayılır |
+| `gustDuration` | Bir sallamanın rüzgârı ne kadar sürer |
+| `maxDistance` / `farMultiplier` | Menzil ve uzakta kalan güç oranı |
 
-```
-   ↖ hareket
-   |
-   ↓ gravity   (gravity her zaman baskın)
-```
+---
+
+## Engeller (Dallar)
+
+- **5 farklı dal**, hepsi **aynı uzunlukta**
+- Ekranın sol veya sağ kenarından içeri uzanırlar
+- Aşağıdan gelip yukarı doğru kayarlar
 
 ---
 
@@ -60,10 +76,10 @@ Yaprağa her frame iki kuvvet etki eder:
 ### Görsel
 - [ ] Karakter (yaprak) tasarımı
 - [ ] Game background
-- [ ] Yaprağın çarpacağı engeller/platformlar
+- [ ] 5 farklı dal (aynı uzunlukta)
 - [ ] UI (menü, skor, play again)
-- [ ] Fan
-- [ ] Fan rüzgârı (particle effect olabilir)
+- [ ] Yelpaze (sallanma animasyonuyla)
+- [ ] Rüzgâr efekti (particle effect olabilir)
 - [ ] Cutscene görselleri
 
 ### Ses
@@ -72,11 +88,21 @@ Yaprağa her frame iki kuvvet etki eder:
 - [ ] Fail müziği
 - [ ] Buton sesi
 - [ ] Yaprak ezilme sesi (fail)
-- [ ] Fan sesi
+- [ ] Yelpaze sesi
+
+---
+
+## Kodlar
+
+| Script | Nereye | Görevi |
+|--------|--------|--------|
+| `Leaf.cs` | Yaprak | Yelpazelerden gelen gücü toplar, yatayda hareket eder, X sınırı, fail kontrolü |
+| `Fan.cs` | Her iki yelpaze | Basış hızına ve uzaklığa göre rüzgâr üretir |
+| `Scroller.cs` | Arka plan ve dallar | Objeyi yukarı kaydırır, arka planı döngüye sokar |
 
 ---
 
 ## Açık Sorular
-- Engellere çarpınca ne oluyor? (sekme, yavaşlama, fail?)
-- Kamera yaprakla birlikte aşağı mı kayıyor, yoksa sahne sabit mi?
-- Zaman geçtikçe zorluk artıyor mu? (gravity artışı, daha çok engel vb.)
+- Yaprak artık düşmediği için ground'a çarpamaz. Fail **dala çarpmak** mı olacak?
+- Dallar rastgele mi gelecek, yoksa elle tasarlanmış bir sırayla mı?
+- Zaman geçtikçe zorluk artıyor mu? (kayma hızının artması, dalların sıklaşması vb.)
