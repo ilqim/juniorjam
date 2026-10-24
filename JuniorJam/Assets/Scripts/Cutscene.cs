@@ -1,7 +1,6 @@
 using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.SceneManagement;
 using TMPro;
 #if ENABLE_INPUT_SYSTEM
 using UnityEngine.InputSystem;
@@ -20,6 +19,7 @@ public class Cutscene : MonoBehaviour
 
     private int index;
     private bool isTyping;
+    private bool isLeaving;
     private Coroutine typingRoutine;
 
     private void Start()
@@ -29,6 +29,8 @@ public class Cutscene : MonoBehaviour
 
     private void Update()
     {
+        // Fade sırasında ya da sahneden çıkarken tıklamaları yok say
+        if (isLeaving || SceneFader.IsFading) return;
         if (!AdvancePressed()) return;
 
         if (isTyping)
@@ -76,7 +78,8 @@ public class Cutscene : MonoBehaviour
         }
         else if (!string.IsNullOrEmpty(nextSceneName))
         {
-            SceneManager.LoadScene(nextSceneName);
+            isLeaving = true;
+            SceneFader.Load(nextSceneName);
         }
     }
 

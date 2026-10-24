@@ -1,18 +1,22 @@
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class MainMenuManager : MonoBehaviour
 {
+    [Tooltip("Play'e basınca açılacak sahnenin adı (ilk cutscene). Build Profiles listesindekiyle birebir aynı olmalı")]
+    public string nextSceneName = "Cutscene";
+
+    [Tooltip("Butona basıldıktan sonra fade başlamadan önceki bekleme (buton sesi için)")]
+    public float loadDelay = 0.25f;
+
     public void PlayGame()
     {
-        Invoke("LoadGameScene", 0.25f);
+        Invoke(nameof(LoadNextScene), loadDelay);
     }
 
-    void LoadGameScene()
+    void LoadNextScene()
     {
-        SceneManager.LoadScene(1);
+        SceneFader.Load(nextSceneName);
     }
-    
 
     public void QuitGame()
     {
