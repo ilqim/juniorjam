@@ -35,11 +35,11 @@ public class Fan : MonoBehaviour
     public float gustDuration = 0.3f;
 
     [Header("Uzaklık")]
-    [Tooltip("Bu mesafeden uzaktaki yaprağa hiç etki etmez")]
-    public float maxDistance = 30f;
+    [Tooltip("Güç bu mesafeye kadar giderek azalır, daha uzakta en düşük seviyede sabit kalır")]
+    public float falloffDistance = 15f;
 
-    [Tooltip("Menzilin ucundayken gücün yüzde kaçı kalır (0-1)")]
-    [Range(0f, 1f)] public float farMultiplier = 0.25f;
+    [Tooltip("En uzakta gücün yüzde kaçı kalır (0-1). 0'dan büyük olduğu sürece yaprak her yerde hareket eder")]
+    [Range(0.05f, 1f)] public float minDistanceMultiplier = 0.3f;
 
     [Header("Efektler (opsiyonel)")]
     [Tooltip("Animator'da bu isimde bir Trigger varsa her basışta tetiklenir")]
@@ -95,11 +95,10 @@ public class Fan : MonoBehaviour
     {
         if (currentGust <= 0f) return 0f;
 
+        // Menzil sınırı yok: yakınken tam güç, uzaklaştıkça azalır ama hiç sıfırlanmaz
         float distance = Vector2.Distance(transform.position, leafPosition);
-        if (distance >= maxDistance) return 0f;
-
-        float t = distance / maxDistance;                    // 0 = dibinde, 1 = menzil ucu
-        float distanceFactor = Mathf.Lerp(1f, farMultiplier, t);
+        float t = Mathf.Clamp01(distance / falloffDistance);
+        float distanceFactor = Mathf.Lerp(1f, minDistanceMultiplier, t);
 
         return currentGust * distanceFactor * (int)direction;
     }
@@ -154,6 +153,6 @@ public class Fan : MonoBehaviour
     void OnDrawGizmosSelected()
     {
         Gizmos.color = new Color(0.4f, 0.8f, 1f, 0.5f);
-        Gizmos.DrawWireSphere(transform.position, maxDistance);
+        Gizmos.DrawWireSphere(transform.position, falloffDistance);
     }
 }
