@@ -37,6 +37,10 @@ public class GameManager : MonoBehaviour
 
     const string BestScoreKey = "BestScore";
 
+    [Tooltip("Skorun kaç basamaklı gösterileceği (önü sıfırla doldurulur)")]
+    public int scoreDigits = 6;
+    string ScoreFormat => new string('0', Mathf.Max(1, scoreDigits));
+
     float score;
     float currentRate;
     bool isGameOver;
@@ -72,7 +76,7 @@ public class GameManager : MonoBehaviour
 
     void UpdateScoreText()
     {
-        if (scoreText != null) scoreText.text = Score.ToString();
+        if (scoreText != null) scoreText.text = Score.ToString(ScoreFormat);
     }
 
     public void GameOver()
@@ -95,31 +99,21 @@ public class GameManager : MonoBehaviour
                 if (s != null) s.speed = 0f;
 
         // Fail ekranı
-        if (finalScoreText != null) finalScoreText.text = $"Score: {Score}";
-        if (bestScoreText != null) bestScoreText.text = newBest ? $"New Best: {Score}" : $"Best: {BestScore}";
+        if (finalScoreText != null) finalScoreText.text = $"Score: {Score.ToString(ScoreFormat)}";
+        if (bestScoreText != null) bestScoreText.text = newBest
+            ? $"New Best: {Score.ToString(ScoreFormat)}"
+            : $"Best: {BestScore.ToString(ScoreFormat)}";
         if (failScreen != null) failScreen.SetActive(true);
     }
 
     // Play Again butonuna bağla
     public void PlayAgain()
     {
-        Time.timeScale = 1f; // Oyun durmuşsa zamanı tekrar akıtır
-        Invoke("LoadPlayAgain", 0.25f); // Click sesi duyulsun diye 0.25 sn bekler
-    }
-
-    void LoadPlayAgain()
-    {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
     // Main Menu butonuna bağla
     public void GoToMainMenu()
-    {
-        Time.timeScale = 1f;
-        Invoke("LoadMainMenu", 0.25f);
-    }
-
-    void LoadMainMenu()
     {
         SceneManager.LoadScene(mainMenuScene);
     }
