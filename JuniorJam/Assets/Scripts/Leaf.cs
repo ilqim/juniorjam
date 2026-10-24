@@ -10,8 +10,8 @@ public class Leaf : MonoBehaviour
     [Tooltip("Yatayda ulaşabileceği en yüksek hız")]
     public float maxHorizontalSpeed = 6f;
 
-    [Tooltip("Fan kapalıyken yatay hızın ne kadar çabuk sönümleneceği")]
-    public float horizontalDrag = 2f;
+    [Tooltip("Yatay hızın ne kadar çabuk sönümleneceği (yüksek = çabuk durur)")]
+    public float damping = 3f;
 
     [Header("Sınırlar")]
     [Tooltip("Yaprağın gidebileceği en sol X")]
@@ -57,7 +57,8 @@ public class Leaf : MonoBehaviour
 
         // İtme varsa hızlan, yoksa yavaşça dur
         horizontalVelocity += push * Time.fixedDeltaTime;
-        horizontalVelocity = Mathf.MoveTowards(horizontalVelocity, 0f, horizontalDrag * Time.fixedDeltaTime);
+        // Hıza orantılı sönümleme: zayıf itme bile yaprağı biraz hareket ettirir
+        horizontalVelocity *= 1f / (1f + damping * Time.fixedDeltaTime);
         horizontalVelocity = Mathf.Clamp(horizontalVelocity, -maxHorizontalSpeed, maxHorizontalSpeed);
 
         // Sınıra ulaştıysa o yöne gitmeyi durdur
@@ -80,15 +81,28 @@ public class Leaf : MonoBehaviour
         Gizmos.DrawLine(new Vector3(maxX, transform.position.y - 20f), new Vector3(maxX, transform.position.y + 20f));
     }
 
+    // Dal collider'ı "Is Trigger" ise buraya düşer
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        if (!isDead && other.CompareTag(failTag))
+            Fail();
+    }
+
+    void Fail()
+    {
+        isDead = true;
+        horizontalVelocity = 0f;
+        rb.linearVelocity = Vector2.zero;
+        onFail?.Invoke();
+    }
+
     void OnCollisionEnter2D(Collision2D collision)
     {
         if (isDead) return;
 
         if (collision.gameObject.CompareTag(failTag))
         {
-            isDead = true;
-            rb.linearVelocity = Vector2.zero;
-            onFail?.Invoke();
+            Fail();
         }
         else
         {
