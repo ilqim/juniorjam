@@ -1,0 +1,663 @@
+fileFormatVersion: 2
+guid: 4356acde95c5ea24191c9a755555d048
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -6014061164252035639
+    second: 1_rectangular_wooden_buttons_16x8_100__0
+  - first:
+      213: 6627165024938788945
+    second: 1_rectangular_wooden_buttons_16x8_100__1
+  - first:
+      213: -1167481395472784687
+    second: 1_rectangular_wooden_buttons_16x8_100__2
+  - first:
+      213: 5494013053556961060
+    second: 1_rectangular_wooden_buttons_16x8_100__3
+  - first:
+      213: -5193967544247825367
+    second: 1_rectangular_wooden_buttons_16x8_100__4
+  - first:
+      213: -8196119306132843551
+    second: 1_rectangular_wooden_buttons_16x8_100__5
+  - first:
+      213: 5604774442002276591
+    second: 1_rectangular_wooden_buttons_16x8_100__6
+  - first:
+      213: 3361211077155738711
+    second: 1_rectangular_wooden_buttons_16x8_100__7
+  - first:
+      213: -541436255588033305
+    second: 1_rectangular_wooden_buttons_16x8_100__8
+  - first:
+      213: 73775623685208276
+    second: 1_rectangular_wooden_buttons_16x8_100__9
+  - first:
+      213: -1111049130229970744
+    second: 1_rectangular_wooden_buttons_16x8_100__10
+  - first:
+      213: -6086875828488822123
+    second: 1_rectangular_wooden_buttons_16x8_100__11
+  - first:
+      213: -7647337988775166029
+    second: 1_rectangular_wooden_buttons_16x8_100__12
+  - first:
+      213: 4647670924080563134
+    second: 1_rectangular_wooden_buttons_16x8_100__13
+  - first:
+      213: 5136460063754382181
+    second: 1_rectangular_wooden_buttons_16x8_100__14
+  - first:
+      213: 2814916900459485484
+    second: 1_rectangular_wooden_buttons_16x8_100__15
+  - first:
+      213: -3776960025782094541
+    second: 1_rectangular_wooden_buttons_16x8_100__16
+  - first:
+      213: 5443008020690809668
+    second: 1_rectangular_wooden_buttons_16x8_100__17
+  - first:
+      213: -2302232764937976001
+    second: 1_rectangular_wooden_buttons_16x8_100__18
+  - first:
+      213: 379773035426321931
+    second: 1_rectangular_wooden_buttons_16x8_100__19
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: 1_rectangular_wooden_buttons_16x8_100__0
+      rect:
+        serializedVersion: 2
+        x: 15
+        y: 308
+        width: 18
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9c509472c33c98ca0800000000000000
+      internalID: -6014061164252035639
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 1_rectangular_wooden_buttons_16x8_100__1
+      rect:
+        serializedVersion: 2
+        x: 47
+        y: 308
+        width: 18
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1588e5b5a7b68fb50800000000000000
+      internalID: 6627165024938788945
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 1_rectangular_wooden_buttons_16x8_100__2
+      rect:
+        serializedVersion: 2
+        x: 15
+        y: 276
+        width: 18
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1d2a7fc3bd54ccfe0800000000000000
+      internalID: -1167481395472784687
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 1_rectangular_wooden_buttons_16x8_100__3
+      rect:
+        serializedVersion: 2
+        x: 47
+        y: 276
+        width: 18
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 42f2f9083c7ae3c40800000000000000
+      internalID: 5494013053556961060
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 1_rectangular_wooden_buttons_16x8_100__4
+      rect:
+        serializedVersion: 2
+        x: 15
+        y: 244
+        width: 18
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 92c433e89025be7b0800000000000000
+      internalID: -5193967544247825367
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 1_rectangular_wooden_buttons_16x8_100__5
+      rect:
+        serializedVersion: 2
+        x: 47
+        y: 244
+        width: 18
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1e31b3d7ae8814e80800000000000000
+      internalID: -8196119306132843551
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 1_rectangular_wooden_buttons_16x8_100__6
+      rect:
+        serializedVersion: 2
+        x: 15
+        y: 212
+        width: 18
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fe0ebbdd8a828cd40800000000000000
+      internalID: 5604774442002276591
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 1_rectangular_wooden_buttons_16x8_100__7
+      rect:
+        serializedVersion: 2
+        x: 47
+        y: 212
+        width: 18
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 754d9fc8aab65ae20800000000000000
+      internalID: 3361211077155738711
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 1_rectangular_wooden_buttons_16x8_100__8
+      rect:
+        serializedVersion: 2
+        x: 15
+        y: 180
+        width: 18
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7ec582d189e6c78f0800000000000000
+      internalID: -541436255588033305
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 1_rectangular_wooden_buttons_16x8_100__9
+      rect:
+        serializedVersion: 2
+        x: 47
+        y: 180
+        width: 18
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4d8f6d2f98a160100800000000000000
+      internalID: 73775623685208276
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 1_rectangular_wooden_buttons_16x8_100__10
+      rect:
+        serializedVersion: 2
+        x: 15
+        y: 148
+        width: 18
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8c8c2a0e3b2c490f0800000000000000
+      internalID: -1111049130229970744
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 1_rectangular_wooden_buttons_16x8_100__11
+      rect:
+        serializedVersion: 2
+        x: 47
+        y: 148
+        width: 18
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 59223030fa2178ba0800000000000000
+      internalID: -6086875828488822123
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 1_rectangular_wooden_buttons_16x8_100__12
+      rect:
+        serializedVersion: 2
+        x: 15
+        y: 116
+        width: 18
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3bfb4b5dd923fd590800000000000000
+      internalID: -7647337988775166029
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 1_rectangular_wooden_buttons_16x8_100__13
+      rect:
+        serializedVersion: 2
+        x: 47
+        y: 116
+        width: 18
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: eb3cbbeb418df7040800000000000000
+      internalID: 4647670924080563134
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 1_rectangular_wooden_buttons_16x8_100__14
+      rect:
+        serializedVersion: 2
+        x: 15
+        y: 84
+        width: 18
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 56b6f0fb63f584740800000000000000
+      internalID: 5136460063754382181
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 1_rectangular_wooden_buttons_16x8_100__15
+      rect:
+        serializedVersion: 2
+        x: 47
+        y: 84
+        width: 18
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c299124c108901720800000000000000
+      internalID: 2814916900459485484
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 1_rectangular_wooden_buttons_16x8_100__16
+      rect:
+        serializedVersion: 2
+        x: 15
+        y: 52
+        width: 18
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 33578642eda859bc0800000000000000
+      internalID: -3776960025782094541
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 1_rectangular_wooden_buttons_16x8_100__17
+      rect:
+        serializedVersion: 2
+        x: 47
+        y: 52
+        width: 18
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 443b0eed4f2798b40800000000000000
+      internalID: 5443008020690809668
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 1_rectangular_wooden_buttons_16x8_100__18
+      rect:
+        serializedVersion: 2
+        x: 15
+        y: 20
+        width: 18
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f374b9f7f73dc00e0800000000000000
+      internalID: -2302232764937976001
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 1_rectangular_wooden_buttons_16x8_100__19
+      rect:
+        serializedVersion: 2
+        x: 47
+        y: 20
+        width: 18
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b069bd74099354500800000000000000
+      internalID: 379773035426321931
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      1_rectangular_wooden_buttons_16x8_100__0: -6014061164252035639
+      1_rectangular_wooden_buttons_16x8_100__1: 6627165024938788945
+      1_rectangular_wooden_buttons_16x8_100__10: -1111049130229970744
+      1_rectangular_wooden_buttons_16x8_100__11: -6086875828488822123
+      1_rectangular_wooden_buttons_16x8_100__12: -7647337988775166029
+      1_rectangular_wooden_buttons_16x8_100__13: 4647670924080563134
+      1_rectangular_wooden_buttons_16x8_100__14: 5136460063754382181
+      1_rectangular_wooden_buttons_16x8_100__15: 2814916900459485484
+      1_rectangular_wooden_buttons_16x8_100__16: -3776960025782094541
+      1_rectangular_wooden_buttons_16x8_100__17: 5443008020690809668
+      1_rectangular_wooden_buttons_16x8_100__18: -2302232764937976001
+      1_rectangular_wooden_buttons_16x8_100__19: 379773035426321931
+      1_rectangular_wooden_buttons_16x8_100__2: -1167481395472784687
+      1_rectangular_wooden_buttons_16x8_100__3: 5494013053556961060
+      1_rectangular_wooden_buttons_16x8_100__4: -5193967544247825367
+      1_rectangular_wooden_buttons_16x8_100__5: -8196119306132843551
+      1_rectangular_wooden_buttons_16x8_100__6: 5604774442002276591
+      1_rectangular_wooden_buttons_16x8_100__7: 3361211077155738711
+      1_rectangular_wooden_buttons_16x8_100__8: -541436255588033305
+      1_rectangular_wooden_buttons_16x8_100__9: 73775623685208276
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

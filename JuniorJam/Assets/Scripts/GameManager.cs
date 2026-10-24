@@ -34,6 +34,16 @@ public class GameManager : MonoBehaviour
 
     [Header("Sahneler")]
     public string mainMenuScene = "MainMenu";
+    [Tooltip("Play Again'de açılacak sahne (oyun sahnesi)")]
+    public string gameScene = "Game";
+    [Tooltip("Fail olunca açılacak sahne. Boş bırakılırsa bu sahnedeki Fail Screen açılır")]
+    public string failScene = "Fail";
+    [Tooltip("Çarptıktan sonra kararmaya başlamadan önce bekleme (saniye)")]
+    public float failDelay = 0.5f;
+
+    // Fail sahnesinde göstermek için son oyunun skoru
+    public static int LastScore { get; private set; }
+    public static bool LastWasNewBest { get; private set; }
 
     const string BestScoreKey = "BestScore";
 
@@ -98,7 +108,17 @@ public class GameManager : MonoBehaviour
             foreach (Scroller s in backgroundScrollers)
                 if (s != null) s.speed = 0f;
 
-        // Fail ekranı
+        LastScore = Score;
+        LastWasNewBest = newBest;
+
+        // Fail sahnesi varsa siyah geçişle oraya git
+        if (!string.IsNullOrEmpty(failScene))
+        {
+            Invoke(nameof(LoadFailScene), failDelay);
+            return;
+        }
+
+        // Yoksa bu sahnedeki fail ekranı
         if (finalScoreText != null) finalScoreText.text = $"Score: {Score.ToString(ScoreFormat)}";
         if (bestScoreText != null) bestScoreText.text = newBest
             ? $"New Best: {Score.ToString(ScoreFormat)}"
@@ -106,15 +126,20 @@ public class GameManager : MonoBehaviour
         if (failScreen != null) failScreen.SetActive(true);
     }
 
+    void LoadFailScene()
+    {
+        SceneFader.Load(failScene);
+    }
+
     // Play Again butonuna bağla
     public void PlayAgain()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        SceneFader.Load(string.IsNullOrEmpty(gameScene) ? SceneManager.GetActiveScene().name : gameScene);
     }
 
     // Main Menu butonuna bağla
     public void GoToMainMenu()
     {
-        SceneManager.LoadScene(mainMenuScene);
+        SceneFader.Load(mainMenuScene);
     }
 }

@@ -9,20 +9,23 @@ EditorBuildSettings:
     path: Assets/Scenes/Main Menu.unity
     guid: fe0b9c1015060bb4c82973c3921b1088
   - enabled: 1
+    path: Assets/Scenes/Cutscene.unity
+    guid: b8369da6e12d2204ebf93f983f45a4a0
+  - enabled: 1
     path: Assets/Scenes/Game.unity
     guid: 99c9720ab356a0642a771bea13969a05
   - enabled: 1
-    path: Assets/Cutscene.unity
-    guid: de90ff22b017ddc4c8a4a3db52847a19
-  - enabled: 1
+    path: Assets/Scenes/Fail.unity
+    guid: 02ea6371fa0f0614aba7bdc31e75055c
+  - enabled: 0
     path: Assets/Cutscene_2.unity
-    guid: 048a4b9db430126408f8063fce8f62d1
-  - enabled: 1
+    guid: 3ae8ceb7a80ad824a8ff3350585ece83
+  - enabled: 0
     path: Assets/Cutscene_3.unity
-    guid: d5243a5436d5b8441bda1b2ec22ef30a
-  - enabled: 1
+    guid: 3bc1fe59d338c2d4d816b2fdc4fffbaf
+  - enabled: 0
     path: Assets/Cutscene_4.unity
-    guid: b77d4091e7fdf7241b7e4d9f13b4a7c5
+    guid: 15e4d0a7b47663e44858f1961429cd29
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   m_UseUCBPForAssetBundles: 0

@@ -11,6 +11,13 @@ public class Booster : MonoBehaviour
 {
     [Header("Referanslar")]
     public Leaf leaf;
+    [Tooltip("Oyun müziğini çalan AudioSource")]
+    public AudioSource musicSource;
+
+    [Tooltip("Booster aktifken müzik hız çarpanı")]
+    public float musicSpeedMultiplier = 2f;
+
+    float normalPitch = 1f;
 
     [Header("Ayarlar")]
     [Tooltip("Barın boştan tama dolma süresi (saniye)")]
@@ -103,6 +110,11 @@ public class Booster : MonoBehaviour
     {
         IsActive = true;
         if (leaf != null) leaf.speedMultiplier = speedMultiplier;
+        if (musicSource != null)
+        {
+            normalPitch = musicSource.pitch;
+            musicSource.pitch = normalPitch * musicSpeedMultiplier;
+        }
         onActivated?.Invoke();
     }
 
@@ -110,6 +122,7 @@ public class Booster : MonoBehaviour
     {
         IsActive = false;
         if (leaf != null) leaf.speedMultiplier = 1f;
+        if (musicSource != null) musicSource.pitch = normalPitch;
         onEnded?.Invoke();
     }
 
