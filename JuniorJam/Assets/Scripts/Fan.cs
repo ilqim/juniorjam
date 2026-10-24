@@ -45,9 +45,13 @@ public class Fan : MonoBehaviour
     [Tooltip("Animator'da bu isimde bir Trigger varsa her basışta tetiklenir")]
     public Animator animator;
     public string waveTrigger = "Wave";
+    [Tooltip("Animator'daki animasyon hızı parametresi (Float)")]
+    public string waveSpeedParam = "WaveSpeed";
+    [Tooltip("En hızlı basışta animasyon kaç kat hızlı oynar")]
+    public float maxAnimSpeed = 3f;
     public ParticleSystem windParticles;
     [Tooltip("Her basışta çıkacak parçacık sayısı")]
-    public int particlesPerTap = 10;
+    public int particlesPerTap = 1;
     public AudioSource audioSource;
     public AudioClip waveSound;
 
@@ -137,8 +141,14 @@ public class Fan : MonoBehaviour
 
     void PlayEffects()
     {
-        if (animator != null && !string.IsNullOrEmpty(waveTrigger))
-            animator.SetTrigger(waveTrigger);
+        if (animator != null)
+        {
+            if (!string.IsNullOrEmpty(waveSpeedParam))
+                animator.SetFloat(waveSpeedParam, Mathf.Lerp(1f, maxAnimSpeed, RateNormalized));
+
+            if (!string.IsNullOrEmpty(waveTrigger))
+                animator.SetTrigger(waveTrigger);
+        }
 
         if (windParticles != null)
             windParticles.Emit(Mathf.RoundToInt(particlesPerTap * Mathf.Lerp(1f, maxRateMultiplier, RateNormalized)));
