@@ -20,6 +20,9 @@ public class Leaf : MonoBehaviour
     [Tooltip("Yaprağın gidebileceği en sağ X")]
     public float maxX = 7.5f;
 
+    [Tooltip("Booster tarafından ayarlanır. 1 = normal hız")]
+    [HideInInspector] public float speedMultiplier = 1f;
+
     [Header("Fanlar")]
     [Tooltip("Boş bırakılırsa sahnedeki tüm fanlar otomatik bulunur")]
     public Fan[] fans;
@@ -56,10 +59,11 @@ public class Leaf : MonoBehaviour
             push += fan.GetPush(rb.position);
 
         // İtme varsa hızlan, yoksa yavaşça dur
-        horizontalVelocity += push * Time.fixedDeltaTime;
+        horizontalVelocity += push * speedMultiplier * Time.fixedDeltaTime;
         // Hıza orantılı sönümleme: zayıf itme bile yaprağı biraz hareket ettirir
         horizontalVelocity *= 1f / (1f + damping * Time.fixedDeltaTime);
-        horizontalVelocity = Mathf.Clamp(horizontalVelocity, -maxHorizontalSpeed, maxHorizontalSpeed);
+        float maxSpeed = maxHorizontalSpeed * speedMultiplier;
+        horizontalVelocity = Mathf.Clamp(horizontalVelocity, -maxSpeed, maxSpeed);
 
         // Sınıra ulaştıysa o yöne gitmeyi durdur
         float nextX = rb.position.x + horizontalVelocity * Time.fixedDeltaTime;
