@@ -103,11 +103,23 @@ public class GameManager : MonoBehaviour
     // Play Again butonuna bağla
     public void PlayAgain()
     {
+        Time.timeScale = 1f; // Oyun durmuşsa zamanı tekrar akıtır
+        Invoke("LoadPlayAgain", 0.25f); // Click sesi duyulsun diye 0.25 sn bekler
+    }
+
+    void LoadPlayAgain()
+    {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
     // Main Menu butonuna bağla
     public void GoToMainMenu()
+    {
+        Time.timeScale = 1f;
+        Invoke("LoadMainMenu", 0.25f);
+    }
+
+    void LoadMainMenu()
     {
         SceneManager.LoadScene(mainMenuScene);
     }
