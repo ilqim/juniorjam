@@ -13,6 +13,14 @@ public class Leaf : MonoBehaviour
     [Tooltip("Yatay hızın ne kadar çabuk sönümleneceği (yüksek = çabuk durur)")]
     public float damping = 3f;
 
+    [Header("Dalgalı hareket (U şekli)")]
+    [Tooltip("Yaprak en hızlıyken başlangıç yüksekliğinin ne kadar altına iner. 0 = düz hareket")]
+    public float swayDepth = 0.8f;
+    [Tooltip("Yüksekliğin hıza ne kadar çabuk uyduğu (yüksek = sert, düşük = yumuşak)")]
+    public float swaySmooth = 6f;
+
+    float baseY;
+
     [Header("Sınırlar")]
     [Tooltip("Yaprağın gidebileceği en sol X")]
     public float minX = -7.5f;
@@ -22,6 +30,19 @@ public class Leaf : MonoBehaviour
 
     [Tooltip("Booster tarafından ayarlanır. 1 = normal hız")]
     [HideInInspector] public float speedMultiplier = 1f;
+
+    [Header("Animasyon")]
+    [Tooltip("Yaprağın Animator'ı. Boşsa bu objede ya da child'larında aranır")]
+    public Animator animator;
+    public string idleState = "Idle";
+    public string rightState = "LeafRight";
+    public string leftState = "LeafAnim";
+    [Tooltip("Bu hızın altında yaprak duruyor sayılır ve Idle oynar")]
+    public float moveThreshold = 0.3f;
+    [Tooltip("Animasyonlar arası yumuşak geçiş süresi (saniye)")]
+    public float animBlend = 0.1f;
+
+    int currentDirection = int.MinValue; // -1 sol, 0 duruyor, 1 sağ
 
     [Header("Fanlar")]
     [Tooltip("Boş bırakılırsa sahnedeki tüm fanlar otomatik bulunur")]
@@ -42,11 +63,14 @@ public class Leaf : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         rb.gravityScale = 0f;        // Yerçekimi yok
-        // Dikey konumu ve dönüşü kilitle, yaprak sadece sağa sola gidebilsin
-        rb.constraints = RigidbodyConstraints2D.FreezePositionY | RigidbodyConstraints2D.FreezeRotation;
+        // Dönüşü kilitle. Dikey konumu kod yönetiyor (dalgalı hareket için)
+        rb.constraints = RigidbodyConstraints2D.FreezeRotation;
+        baseY = rb.position.y;
 
         if (fans == null || fans.Length == 0)
             fans = FindObjectsByType<Fan>(FindObjectsSortMode.None);
+
+        if (animator == null) animator = GetComponentInChildren<Animator>();
     }
 
     void FixedUpdate()
@@ -73,8 +97,32 @@ public class Leaf : MonoBehaviour
             rb.position = new Vector2(Mathf.Clamp(rb.position.x, minX, maxX), rb.position.y);
         }
 
-        // Dikeyde hareket yok
-        rb.linearVelocity = new Vector2(horizontalVelocity, 0f);
+        // U şekli: yaprak hızlandıkça aşağı iner, yavaşlayınca tekrar yükselir.
+        // Tek basışta: dururken yukarıda → hızlanırken aşağı → dururken yine yukarı.
+        float speed01 = Mathf.Clamp01(Mathf.Abs(horizontalVelocity) / maxHorizontalSpeed);
+        float targetY = baseY - swayDepth * speed01;
+        float verticalVelocity = (targetY - rb.position.y) * swaySmooth;
+
+        rb.linearVelocity = new Vector2(horizontalVelocity, verticalVelocity);
+
+        UpdateAnimation();
+    }
+
+    // Hareket yönüne göre animasyonu değiştirir. Sadece yön değişince çağrılır, her karede değil.
+    void UpdateAnimation()
+    {
+        if (animator == null) return;
+
+        int direction = 0;
+        if (horizontalVelocity > moveThreshold) direction = 1;
+        else if (horizontalVelocity < -moveThreshold) direction = -1;
+
+        if (direction == currentDirection) return;
+        currentDirection = direction;
+
+        string state = direction == 1 ? rightState : direction == -1 ? leftState : idleState;
+        if (!string.IsNullOrEmpty(state))
+            animator.CrossFadeInFixedTime(state, animBlend);
     }
 
     // Sahne penceresinde sınırları kırmızı çizgiyle gösterir.

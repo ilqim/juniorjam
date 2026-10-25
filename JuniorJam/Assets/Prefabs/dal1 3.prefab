@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2957264326650859078}
   - component: {fileID: 3926775506709717075}
-  - component: {fileID: 5571811574707404105}
+  - component: {fileID: 3522287214905884584}
   m_Layer: 0
   m_Name: dal1 3
   m_TagString: Ground
@@ -88,8 +88,8 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!61 &5571811574707404105
-BoxCollider2D:
+--- !u!60 &3522287214905884584
+PolygonCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -122,7 +122,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: -0.03409028, y: 0.0020053163}
+  m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -132,5 +132,24 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 0.93181944, y: 0.17962818}
-  m_EdgeRadius: 0
+  m_Points:
+    m_Paths:
+    - - {x: 0.13269518, y: -0.0938579}
+      - {x: 0.2261421, y: -0.082654096}
+      - {x: 0.48257196, y: 0.031162651}
+      - {x: 0.5062243, y: 0.028919566}
+      - {x: 0.5086317, y: 0.05638872}
+      - {x: 0.4122431, y: 0.06879628}
+      - {x: 0.19, y: 0.010082219}
+      - {x: -0.012489724, y: 0.042571925}
+      - {x: -0.12120365, y: 0.08385794}
+      - {x: -0.15579069, y: 0.09899682}
+      - {x: -0.2871744, y: 0.094602056}
+      - {x: -0.36581033, y: 0.0668809}
+      - {x: -0.49751025, y: 0.09506165}
+      - {x: -0.50124484, y: -0.10132708}
+      - {x: -0.4251438, y: -0.06896058}
+      - {x: -0.286512, y: -0.052654102}
+      - {x: -0.13751027, y: -0.031368177}
+      - {x: 0.00610091, y: -0.071368195}
+  m_UseDelaunayMesh: 0
